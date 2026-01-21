@@ -1,0 +1,17 @@
+name: Ejecutar Tests
+on: [push, pull_request]
+jobs:
+test:
+runs-on: ubuntu-latest
+steps:
+# 1. Obtener el código
+- name: Checkout del código
+uses: actions/checkout@v4
+# 2. Configurar Node.js
+- name: Configurar Node.js
+uses: actions/setup-node@v4
+with:
+node-version: '18'
+# 3. Ejecutar tests
+- name: Ejecutar tests
+run: npm test
